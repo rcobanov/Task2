@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Navigationbar from "./Navigationbar"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+      <Navigationbar />
       <p>Number of movies in db: {movieLength}</p>
     </>)
 }
