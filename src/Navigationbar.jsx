@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import { NavLink } from 'react-router-dom';
 
 export default function NavigationBar() {
   return (
@@ -13,9 +14,9 @@ export default function NavigationBar() {
         </Navbar.Toggle>
         <Navbar.Collapse id="navbar-nav">
           <Nav>
-            <Nav.Link href="#" className="mx-4">Start</Nav.Link>
-            <Nav.Link href="#" className="mx-4">Book</Nav.Link>
-            <Nav.Link href="#" className="mx-4">Contact</Nav.Link>
+            <NavLink to="/" className="mx-4">Start</NavLink>
+            <NavLink to="/book" className="mx-4">Book</NavLink>
+            <NavLink to="/about" className="mx-4">Contact</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
