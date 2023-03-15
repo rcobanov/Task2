@@ -14,9 +14,9 @@ export default function NavigationBar() {
         </Navbar.Toggle>
         <Navbar.Collapse id="navbar-nav">
           <Nav>
-            <NavLink to="/" className="mx-4">Start</NavLink>
-            <NavLink to="/book" className="mx-4">Book</NavLink>
-            <NavLink to="/about" className="mx-4">Contact</NavLink>
+            <NavLink to="/" className="mx-4 text-white">Start</NavLink>
+            <NavLink to="/book" className="mx-4 text-white">Book</NavLink>
+            <NavLink to="/about" className="mx-4 text-white">Contact</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

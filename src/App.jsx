@@ -6,18 +6,21 @@ import Start from './pages/Start'
 import Book from './pages/Book'
 import About from './pages/About'
 import Page404 from './pages/Page404'
+import SelectSeats from './pages/SelectSeats'
 
 export default function App() {
 
   const [movies, setMovies] = useState([]);
   const [screenings, setScreenings] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch('/api/movies')
       .then(result => result.json())
       .then(data => setMovies(data))
+      .then(console.log("Running"))
       .catch(error=> console.error((error)))
-  })
+  }, [])
 
 
   useEffect(() => {
@@ -25,7 +28,14 @@ export default function App() {
       .then(result => result.json())
       .then(data => setScreenings(data))
       .catch(error=> console.error((error)))
-  })
+  }, [])
+
+  useEffect(() => {
+    fetch('/api/categories')
+    .then(result => result.json())
+    .then(data => setCategories(data))
+    .catch(error=> console.error((error)))
+  }, [])
 
 
 
@@ -33,8 +43,9 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Start movies={movies} screenings={screenings} />} />
-        <Route path="/book" element={<Book movies={movies} screenings={screenings}  />} />
+        <Route path="/book" element={<Book movies={movies} screenings={screenings} categories={categories}  />} />
         <Route path="/about" element={<About />} />
+        <Route path="/selectseats" element={<SelectSeats />}/>
         {/* Add a 404 page last using path='*' */}
         <Route path="*" element={<Page404 />} />
       </Routes>

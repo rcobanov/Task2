@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <App />
           </Row>
         </Row>
-    </Container>
+      </Container>
     </BrowserRouter>
   </React.StrictMode>,
 )
