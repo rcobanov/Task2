@@ -29,6 +29,7 @@ export default function SelectTickets(props) {
   }
 
   function handleChildrenTickets(event) {
+
     setChildrenTickets(event.target.value)
   }
   
@@ -47,7 +48,7 @@ export default function SelectTickets(props) {
       <h2>Select your tickets:</h2>
       <div>
         <p>Movie: {movie.title}</p>
-        <p>Date: {new Date(screening.time).toLocaleDateString}</p>
+        <p>Date: {new Date(screening.time).toLocaleDateString('sv-SE', { hour: '2-digit', minute: '2-digit'})}</p>
       </div>
       
       <div style={{ paddingBottom: '10px' }}>
