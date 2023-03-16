@@ -1,0 +1,21 @@
+.seat {
+  float: left;
+  width: 6%;
+  aspect-ratio: 1 / 1;
+  background-color: blue;
+  font-size: 1vw;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.occupied{
+  background-color: red;
+}
+
+.available{
+  background-color:green;
+}
