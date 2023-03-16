@@ -1,10 +1,12 @@
 import { Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Book(props) {
   const movies = props.movies
   const screenings = props.screenings
   const categories = props.categories
+  const navigate = useNavigate();
 
   // put all dates in a set to only get unique screen dates
   const datesSet = new Set(screenings.map(screening => new Date(screening.time).toDateString()))
@@ -24,6 +26,7 @@ export default function Book(props) {
 
   function handleRowClick(screening) {
     console.log(screening.id)
+    navigate(`/selecttickets/${screening.id}`)
     
   }
     
