@@ -25,8 +25,7 @@ export default function Book(props) {
   }
 
   function handleRowClick(screening) {
-    console.log(screening.id)
-    navigate(`/selecttickets/${screening.id}/${screening.auditoriumId}`)
+    navigate(`/selecttickets`, { state: { screenid: screening.id, auditoriumId: screening.auditoriumId } },)
     
   }
     

@@ -1,27 +1,20 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './SelectSeats.css';
 
 export default function SelectSeats(props) {
-  const {screeningid, auditoriumId, adultTickets, seniorTickets, childrenTickets} = useParams();
   const auditoriumSeats = props.auditoriumSeats
+  const location = useLocation();
+  const { screeningid, auditoriumId, adultTickets, seniorTickets, childrenTickets } = location.state;
 
   const [numberOfRows, setNumberOfRows] = useState(0);
-  //const [twoDArray, setTwoDArray] = useState([])
-  //let numberOfRows;
+
   const screeningAuditoriumSeats = auditoriumSeats.filter(seat => seat.auditoriumId === parseInt(auditoriumId))
   useEffect(() => {
     if (parseInt(auditoriumId) === 1) setNumberOfRows(9);
     if (parseInt(auditoriumId) === 2) setNumberOfRows(6);
   }, [])
-  //const screeningAuditoriumSeats = auditoriumSeats.filter(seat => seat.auditoriumId === parseInt(auditoriumId))
-  //if (parseInt(auditoriumId) === 1) numberOfRows = 9;
-  //if (parseInt(auditoriumId) === 2) numberOfRows = 6;
-  /*
-  useEffect(() => {
-    setTwoDArray(create2DArray())
-    console.log(twoDArray)
-  },[occupiedSeats])*/
+
   
   const [occupiedSeats, setOccupiedSeats] = useState('');
 
@@ -31,11 +24,9 @@ export default function SelectSeats(props) {
       .then(data => setOccupiedSeats(data))
       .catch(error=> console.error((error)))
   }, [])
-  
-  //const [twoDArray, setTwoDArray] = useState([]);
+
   const twoDArray = create2DArray();
-  //setTwoDArray(create2DArray());
-  
+
   function create2DArray() {
     let twoDArray = [];
     for (let i = 1; i <= numberOfRows; i++){
@@ -45,7 +36,6 @@ export default function SelectSeats(props) {
     return twoDArray;
   }
 
-//
   return (
   
     <>

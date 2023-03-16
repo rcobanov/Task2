@@ -1,13 +1,18 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 
 
 export default function SelectTickets(props) {
   const screenings = props.screenings
   const movies = props.movies
-  const { screeningid, auditoriumId } = useParams();
+  //const { screeningid, auditoriumId } = useParams();
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const screeningid = location.state.screenid;
+  const auditoriumId = location.state.auditoriumId;
 
   const numberofTickets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
  
@@ -34,7 +39,8 @@ export default function SelectTickets(props) {
   }
   
   function selectSeats() {
-    navigate(`/selectseats/${screeningid}/${auditoriumId}/${adultTickets}/${seniorTickets}/${childrenTickets}`);
+   // navigate(`/selectseats/${}/${}/${adultTickets}/${seniorTickets}/${childrenTickets}`);
+    navigate(`/selectseats`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets } },)
   }
 
   //den här useEffecten skall uppdatera en total kostnad när något ändras
