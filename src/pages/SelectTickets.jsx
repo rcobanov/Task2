@@ -17,8 +17,8 @@ export default function SelectTickets(props) {
   const [childrenTickets, setChildrenTickets] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0)
 
-  //const screening = screenings.find(screening => screening.id === parseInt(screeningid));
- // const movie = movies.find(movie => screening.movieId === movie.id);
+  const screening = screenings.find(screening => screening.id === parseInt(screeningid));
+  const movie = movies.find(movie => screening.movieId === movie.id);
 
   function handleAdultTickets(event) {
     setAdultTickets(event.target.value)
@@ -46,7 +46,8 @@ export default function SelectTickets(props) {
     <>
       <h2>Select your tickets:</h2>
       <div>
- 
+        <p>Movie: {movie.title}</p>
+        <p>Date: {new Date(screening.time).toLocaleDateString}</p>
       </div>
       
       <div style={{ paddingBottom: '10px' }}>
