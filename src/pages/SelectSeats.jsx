@@ -42,6 +42,10 @@ export default function SelectSeats(props) {
     if (occupiedSeats[0].occupiedSeats.includes(seat)) {  
       return;
     }
+    if (bookSeats.includes(seat) && (seat == Math.max(...bookSeats) ||(seat == Math.min(...bookSeats) ))) {
+      setBookSeats(bookSeats.filter(x => x != seat));
+      return;
+    }
     if (bookSeats.length > 0 && !(bookSeats.includes(parseInt(seat)+1) || bookSeats.includes(parseInt(seat)-1))) {
       return;
     }

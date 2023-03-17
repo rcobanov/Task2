@@ -26,7 +26,7 @@ export default function Book(props) {
   return (
     <>
       <div>
-        <label>
+        <label> Filters  
           <select value={selectedCategory} onChange={handleCategory}>
             <option key="All">All</option>
             {categories.map(category => <option key={category.id}>{category.title}</option>)}

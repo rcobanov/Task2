@@ -1,7 +1,9 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
+import TicketDetails from '../TicketDetails';
+import SelectTicketTypes from '../SelectTicketTypes';
+import TicketInfo from '../TicketInfo';
 
 
 export default function SelectTickets(props) {
@@ -39,62 +41,19 @@ export default function SelectTickets(props) {
   }
   
   function selectSeats() {
-   // navigate(`/selectseats/${}/${}/${adultTickets}/${seniorTickets}/${childrenTickets}`);
     navigate(`/selectseats`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets, movieTitle: movie.title, screeningtime: screening.time } },)
   }
 
-  //den här useEffecten skall uppdatera en total kostnad när något ändras
+  // update totalcost when any of the ticket types are changed
   useEffect(() => {
-    
     setTotalPrice(adultTickets * 110 + seniorTickets * 85 + childrenTickets * 75 );
   }, [adultTickets, seniorTickets, childrenTickets])
 
   return (
     <>
-      <h2>Välj dina biljetter:</h2>
-      <div>
-        <p>Film: {movie.title}</p>
-        <p>Datum: {new Date(screening.time).toLocaleDateString('sv-SE', { hour: '2-digit', minute: '2-digit'})}</p>
-      </div>
-      
-      <div style={{ paddingBottom: '10px' }}>
-        <h3>Antal biljetter:</h3>
-        <label> Vuxna: 
-          <select onChange={handleAdultTickets} >
-            {numberofTickets.map(number => (
-              (<option key={number}>{number}</option>
-              )
-            ))}
-          </select>
-        </label>
-      </div>
-      <div style={{ paddingBottom: '10px'}}>
-        <label> Senior: 
-          <select onChange={handleSeniorTickets} >
-            {numberofTickets.map(number => (
-              (<option key={number}>{number}</option>
-              )
-            ))}
-          </select>
-        </label>
-      </div>
-      <div style={{ paddingBottom: '10px'}}>
-        <label> Barn: 
-          <select onChange={handleChildrenTickets}>
-            {numberofTickets.map(number => (
-              (<option key={number}>{number}</option>
-              )
-            ))}
-          </select>
-        </label>
-      </div>
-
-      <div>
-        <h4>Detaljer</h4>
-        <p>Total kostnad: {totalPrice} kr </p>
-      <Button variant="primary" onClick={() => selectSeats()}> Välj Stolar </Button>
-      </div>
-      
+      <TicketInfo movietitle={movie.title} screeningtime={screening.time} />
+      <SelectTicketTypes numberofTickets={numberofTickets} handleAdultTickets={handleAdultTickets} handleSeniorTickets={handleSeniorTickets}  handleChildrenTickets={handleChildrenTickets} />
+      <TicketDetails totalPrice={totalPrice} selectSeats={selectSeats} />
     </>
   )
 }
