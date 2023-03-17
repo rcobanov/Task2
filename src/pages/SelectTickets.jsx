@@ -40,7 +40,7 @@ export default function SelectTickets(props) {
   
   function selectSeats() {
    // navigate(`/selectseats/${}/${}/${adultTickets}/${seniorTickets}/${childrenTickets}`);
-    navigate(`/selectseats`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets } },)
+    navigate(`/selectseats`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets, movieTitle: movie.title, screeningtime: screening.time } },)
   }
 
   //den här useEffecten skall uppdatera en total kostnad när något ändras
@@ -51,15 +51,15 @@ export default function SelectTickets(props) {
 
   return (
     <>
-      <h2>Select your tickets:</h2>
+      <h2>Välj dina biljetter:</h2>
       <div>
-        <p>Movie: {movie.title}</p>
-        <p>Date: {new Date(screening.time).toLocaleDateString('sv-SE', { hour: '2-digit', minute: '2-digit'})}</p>
+        <p>Film: {movie.title}</p>
+        <p>Datum: {new Date(screening.time).toLocaleDateString('sv-SE', { hour: '2-digit', minute: '2-digit'})}</p>
       </div>
       
       <div style={{ paddingBottom: '10px' }}>
-        <h3>Number of tickets:</h3>
-        <label> Adults: 
+        <h3>Antal biljetter:</h3>
+        <label> Vuxna: 
           <select onChange={handleAdultTickets} >
             {numberofTickets.map(number => (
               (<option key={number}>{number}</option>
@@ -79,7 +79,7 @@ export default function SelectTickets(props) {
         </label>
       </div>
       <div style={{ paddingBottom: '10px'}}>
-        <label> Children: 
+        <label> Barn: 
           <select onChange={handleChildrenTickets}>
             {numberofTickets.map(number => (
               (<option key={number}>{number}</option>

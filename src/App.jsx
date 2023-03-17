@@ -8,6 +8,7 @@ import About from './pages/About'
 import Page404 from './pages/Page404'
 import SelectSeats from './pages/SelectSeats'
 import SelectTickets from './pages/SelectTickets'
+import Receipt from './pages/Receipt'
 
 export default function App() {
 
@@ -54,7 +55,8 @@ export default function App() {
         <Route path="/book" element={<Book movies={movies} screenings={screenings} categories={categories}  />} />
         <Route path="/about" element={<About />} />
         <Route path="/selectseats"  element={<SelectSeats auditoriumSeats={auditoriumSeats} />} />
-        <Route path="/selecttickets" element={<SelectTickets movies={movies} screenings={screenings} />}/>
+        <Route path="/selecttickets" element={<SelectTickets movies={movies} screenings={screenings} />} />
+        <Route path="/receipt"  element={<Receipt  />} />
         {/* Add a 404 page last using path='*' */}
         <Route path="*" element={<Page404 />} />
       </Routes>
