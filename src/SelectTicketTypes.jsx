@@ -1,5 +1,7 @@
 export default function SelectTicketTypes(props) {
-  const { numberofTickets, handleAdultTickets, handleSeniorTickets, handleChildrenTickets } = props;
+  const { handleAdultTickets, handleSeniorTickets, handleChildrenTickets } = props;
+
+  const numberofTickets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   return (
     <>

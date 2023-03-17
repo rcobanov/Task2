@@ -7,18 +7,15 @@ import TicketInfo from '../TicketInfo';
 
 
 export default function SelectTickets(props) {
-  const screenings = props.screenings
-  const movies = props.movies
-  //const { screeningid, auditoriumId } = useParams();
+  const screenings = props.screenings;
+  const movies = props.movies;
   const navigate = useNavigate();
 
   const location = useLocation();
   const screeningid = location.state.screenid;
   const auditoriumId = location.state.auditoriumId;
 
-  const numberofTickets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
- 
-  //const [screening, setScreening] = useState({});
+
   const [adultTickets, setAdultTickets] = useState(0);
   const [seniorTickets, setSeniorTickets] = useState(0);
   const [childrenTickets, setChildrenTickets] = useState(0);
@@ -36,12 +33,14 @@ export default function SelectTickets(props) {
   }
 
   function handleChildrenTickets(event) {
-
     setChildrenTickets(event.target.value)
   }
   
   function selectSeats() {
-    navigate(`/selectseats`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets, movieTitle: movie.title, screeningtime: screening.time } },)
+    if (parseInt(adultTickets) + parseInt(seniorTickets) + parseInt(childrenTickets) != 0) {
+      navigate(`/selectseats`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets, movieTitle: movie.title, screeningtime: screening.time } },)
+    }
+    
   }
 
   // update totalcost when any of the ticket types are changed
@@ -52,7 +51,7 @@ export default function SelectTickets(props) {
   return (
     <>
       <TicketInfo movietitle={movie.title} screeningtime={screening.time} />
-      <SelectTicketTypes numberofTickets={numberofTickets} handleAdultTickets={handleAdultTickets} handleSeniorTickets={handleSeniorTickets}  handleChildrenTickets={handleChildrenTickets} />
+      <SelectTicketTypes handleAdultTickets={handleAdultTickets} handleSeniorTickets={handleSeniorTickets}  handleChildrenTickets={handleChildrenTickets} />
       <TicketDetails totalPrice={totalPrice} selectSeats={selectSeats} />
     </>
   )
