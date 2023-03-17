@@ -63,7 +63,9 @@ export default function SelectSeats(props) {
   return (
   
     <>
-      <h1>Select Seats</h1>
+      <h1>Välj stolar</h1>
+      <p>{movieTitle}</p>
+      <p>{new Date(screeningtime).toLocaleString()}</p>
       <div className="seats">
       {twoDArray.map((row, rowIndex) => (
         <div key={rowIndex} className="row">
@@ -75,7 +77,6 @@ export default function SelectSeats(props) {
         </div>
       ))}
       </div>    
-
       <div>
         <br></br>
       <Button variant="primary" onClick={() => receipt()}> Bekräfta </Button>

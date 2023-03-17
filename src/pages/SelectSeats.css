@@ -1,6 +1,6 @@
 .seat {
   float: left;
-  width: 6%;
+  width: 5%;
   aspect-ratio: 1 / 1;
   background-color: blue;
   font-size: 1vw;
@@ -18,6 +18,11 @@
 
 .available{
   background-color:green;
+}
+
+.row{
+  display:flex;
+  justify-content:center;
 }
 
 .booked{
