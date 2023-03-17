@@ -1,12 +1,11 @@
 import { Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import MovieRows from '../MovieRows';
 
 export default function Book(props) {
   const movies = props.movies
   const screenings = props.screenings
   const categories = props.categories
-  const navigate = useNavigate();
 
   // put all dates in a set to only get unique screen dates
   const datesSet = new Set(screenings.map(screening => new Date(screening.time).toDateString()))
@@ -22,11 +21,6 @@ export default function Book(props) {
   const handleCategory = (event) => {
     console.log(event.target.value)
     setSelectedCategory(event.target.value)
-  }
-
-  function handleRowClick(screening) {
-    navigate(`/selecttickets`, { state: { screenid: screening.id, auditoriumId: screening.auditoriumId } },)
-    
   }
     
   return (
@@ -57,22 +51,7 @@ export default function Book(props) {
             </tr>
           </thead>
           <tbody>
-            {screenings
-              .filter(screening => new Date(screening.time).toDateString() === date)
-              .filter(screening => {
-                const movie = filteredMovies.find(movie => movie.id === screening.movieId)
-                return movie;
-              }) 
-                .map(screening => {
-                  const movie = filteredMovies.find(movie => movie.id === screening.movieId);
-                  return (
-                  <tr key={screening.id} onClick={() => handleRowClick(screening)}>
-                    <td><img width="10%" height = "10%" src={'https://cinema-rest.nodehill.se' + movie.description.posterImage}></img> {movie.title}</td>
-                    <td>{new Date(screening.time).toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit'})}</td>
-                    <td>{movie.description.length}</td>
-                  </tr>
-                );
-              })}
+            <MovieRows date={date}  screenings={screenings}  filteredMovies={filteredMovies} />
           </tbody>
         </Table>
         </div>

@@ -52,7 +52,8 @@ export default function SelectSeats(props) {
   }
 
   function receipt() {
-     navigate(`/receipt`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets, bookSeats: bookSeats, movieTitle: movieTitle, screeningtime } },)
+    if(bookSeats.length === parseInt(adultTickets) + parseInt(childrenTickets) + parseInt(seniorTickets))
+    navigate(`/receipt`, { state: { screeningid: screeningid, auditoriumId: auditoriumId, adultTickets: adultTickets, seniorTickets: seniorTickets, childrenTickets: childrenTickets, bookSeats: bookSeats, movieTitle: movieTitle, screeningtime } },)
    }
 
   return (
