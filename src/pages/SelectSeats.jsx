@@ -26,7 +26,7 @@ export default function SelectSeats(props) {
       .then(result => result.json())
       .then(data => setOccupiedSeats(data))
       .catch(error=> console.error((error)))
-      })()
+    })()
   }, [])
 
   const twoDArray = create2DArray();
@@ -35,7 +35,7 @@ export default function SelectSeats(props) {
     let twoDArray = [];
     for (let i = 1; i <= numberOfRows; i++){
       const seats = screeningAuditoriumSeats.filter(x => x.rowNumber === i);
-      twoDArray.push(seats);
+      twoDArray.push(seats.sort((a, b) => b.seatNumber - a.seatNumber));
     }
     return twoDArray;
   }

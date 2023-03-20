@@ -4,7 +4,7 @@ import './App.css'
 import Navigationbar from "./Navigationbar"
 import Start from './pages/Start'
 import Book from './pages/Book'
-import About from './pages/About'
+import Contact from './pages/Contact'
 import Page404 from './pages/Page404'
 import SelectSeats from './pages/SelectSeats'
 import SelectTickets from './pages/SelectTickets'
@@ -53,7 +53,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Start movies={movies} screenings={screenings} />} />
         <Route path="/book" element={<Book movies={movies} screenings={screenings} categories={categories}  />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/selectseats"  element={<SelectSeats auditoriumSeats={auditoriumSeats} />} />
         <Route path="/selecttickets" element={<SelectTickets movies={movies} screenings={screenings} />} />
         <Route path="/receipt"  element={<Receipt  />} />

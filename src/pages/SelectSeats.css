@@ -9,6 +9,9 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  margin: 1px;
   align-items: center;
 }
 
