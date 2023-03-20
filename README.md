@@ -6,7 +6,7 @@ It receives movies and screenings as a prop to be able to display both their vie
 
 ## MovieRows
 Is used in the bookings-page. The booking-page generates the table body, and the MovieRows takes a couple of props.
-It is used to create the rows within the table, for each movie.
+It is used to create the rows within the table, for each screening.
 
 ## Navigationbar
 Creates the nav-bar that is visible throughout the page.
