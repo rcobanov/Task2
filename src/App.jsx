@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import './App.css'
-import Navigationbar from "./Navigationbar"
 import Start from './pages/Start'
 import Book from './pages/Book'
 import Contact from './pages/Contact'

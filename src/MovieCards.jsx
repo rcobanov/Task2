@@ -1,4 +1,4 @@
-import { Table, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 export default function MovieCards(props) {
   const movie = props.movie;

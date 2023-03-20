@@ -34,13 +34,13 @@ export default function Receipt() {
   
   return (
     <>
-      <h1>Ditt kvitto</h1>
-      <p>Bokningsnr: {bookingNo} </p>
-      <p>Film: {movieTitle}</p>
-      <p>Datum: {new Date(screeningtime).toLocaleString()}</p>
-      <p>Salong: {auditorium} </p>
-      <p>Dina platser: {bookSeats.sort().join(', ')} </p>
-      <p>{adultTickets * 110 + seniorTickets * 85 + childrenTickets * 75}kr betalas i kassan.</p>
+      <h1>Tack för ditt köp!</h1>
+      <h4>Här är ditt kvitto:</h4>
+      <p><span style={{ fontWeight: 600}}> Bokningsnr: {bookingNo} </span> </p>
+      <p>Film: {movieTitle}<br />
+        Datum: {new Date(screeningtime).toLocaleString()}<br />
+        Salong: {auditorium} <br/>Dina platser: {bookSeats.sort().join(', ')} </p>
+      <p>{adultTickets * 110 + seniorTickets * 85 + childrenTickets * 75}kr betalas i kassan. <br/> Ange ditt bokningsnummer vid ankomst.</p>
     </>
   )
 }
