@@ -1,6 +1,4 @@
-# Task 2 - Feature Flicks
-
-# Components
+# List of components for Task 2 - Feature Flicks
 
 ## MovieCards
 The component moviecards is used to show the movies as cards on the startpage.
