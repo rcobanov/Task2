@@ -12,11 +12,11 @@ It is used to create the rows within the table, for each movie.
 Creates the nav-bar that is visible throughout the page.
 
 
-##TicketInfo
+## TicketInfo
 Shows simple information about your tickets in the SelectTicket.
 
-##SelectTicketTypes 
+## SelectTicketTypes 
 Provides the dropdown list for each ticket type. This component receives a functino as a prop so it can use the hooks that are setup in SelectTickets.
 
-##TicketDetails
+## TicketDetails
 Contains the total price of the ticket aswell as the button to get to SelectSeats
