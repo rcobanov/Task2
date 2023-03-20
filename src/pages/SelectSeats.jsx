@@ -21,10 +21,12 @@ export default function SelectSeats(props) {
   const [occupiedSeats, setOccupiedSeats] = useState('');
 
   useEffect(() => {
-    fetch(`/api/occupied_seats?screeningid=${screeningid}}`)
+    (async () => {
+      await fetch(`/api/occupied_seats?screeningid=${screeningid}}`)
       .then(result => result.json())
       .then(data => setOccupiedSeats(data))
       .catch(error=> console.error((error)))
+      })()
   }, [])
 
   const twoDArray = create2DArray();

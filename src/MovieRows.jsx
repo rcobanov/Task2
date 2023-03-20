@@ -18,7 +18,7 @@ export default function MovieRows(props) {
         .map(screening => {
           const movie = filteredMovies.find(movie => movie.id === screening.movieId);
           return (
-          <tr key={screening.id} onClick={() => handleRowClick(screening)}>
+          <tr key={screening.id} style={{ cursor: 'pointer' }} onClick={() => handleRowClick(screening)}>
             <td><img width="10%" height = "10%" src={'https://cinema-rest.nodehill.se' + movie.description.posterImage}></img> {movie.title}</td>
             <td>{new Date(screening.time).toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit'})}</td>
             <td>{movie.description.length}</td>
