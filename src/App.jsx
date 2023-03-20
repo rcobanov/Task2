@@ -16,6 +16,7 @@ export default function App() {
   const [screenings, setScreenings] = useState([]);
   const [categories, setCategories] = useState([]);
   const [auditoriumSeats, setAuditoriumSeats] = useState([]);
+  const [auditoriums, setAuditoriums] = useState([]);
 
   useEffect(() => {
     fetch('/api/movies')
@@ -46,13 +47,20 @@ export default function App() {
     .catch(error=> console.error((error)))
   }, [])
 
+  useEffect(() => {
+    fetch('/api/auditoriums')
+    .then(result => result.json())
+    .then(data => setAuditoriums(data))
+    .catch(error=> console.error((error)))
+  }, [])
+
 
 
   return (
     <>
       <Routes>
         <Route path="/" element={<Start movies={movies} screenings={screenings} />} />
-        <Route path="/book" element={<Book movies={movies} screenings={screenings} categories={categories}  />} />
+        <Route path="/book" element={<Book movies={movies} screenings={screenings} categories={categories} auditoriums ={auditoriums} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/selectseats"  element={<SelectSeats auditoriumSeats={auditoriumSeats} />} />
         <Route path="/selecttickets" element={<SelectTickets movies={movies} screenings={screenings} />} />

@@ -6,6 +6,7 @@ export default function Book(props) {
   const movies = props.movies
   const screenings = props.screenings
   const categories = props.categories
+  const auditoriums = props.auditoriums
 
   // put all dates in a set to only get unique screen dates
   const datesSet = new Set(screenings.map(screening => new Date(screening.time).toDateString()))
@@ -14,12 +15,14 @@ export default function Book(props) {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+
   useEffect(() => {
     setFilteredMovies(movies.filter(movie => selectedCategory === 'All' || movie.description.categories.includes(selectedCategory)))
   }, [movies, selectedCategory]);
 
+
+
   const handleCategory = (event) => {
-    console.log(event.target.value)
     setSelectedCategory(event.target.value)
   }
     
@@ -47,11 +50,10 @@ export default function Book(props) {
             <tr>
               <th>Titel</th>
               <th>Tid</th>
-              <th>Längd(min)</th>
             </tr>
           </thead>
           <tbody>
-            <MovieRows date={date}  screenings={screenings}  filteredMovies={filteredMovies} />
+            <MovieRows date={date}  screenings={screenings.sort((a,b) => new Date(a.time) - new Date(b.time))}  filteredMovies={filteredMovies} auditoriums ={auditoriums} />
           </tbody>
         </Table>
         </div>
