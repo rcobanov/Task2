@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import TicketDetails from '../TicketDetails';
-import SelectTicketTypes from '../SelectTicketTypes';
-import TicketInfo from '../TicketInfo';
+import TicketDetails from '../components/TicketDetails';
+import SelectTicketTypes from '../components/SelectTicketTypes';
+import TicketInfo from '../components/TicketInfo';
 
 
 export default function SelectTickets(props) {

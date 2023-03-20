@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import { Container, Row } from 'react-bootstrap';
-import Navigationbar from "./Navigationbar"
+import Navigationbar from "./components/Navigationbar"
 
 import './index.css';
 

@@ -1,5 +1,5 @@
 import { Row } from 'react-bootstrap';
-import MovieCards from '../MovieCards';
+import MovieCards from '../components/MovieCards';
 
 export default function Start(props) {
   const movies = props.movies;

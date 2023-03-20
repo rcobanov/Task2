@@ -1,6 +1,6 @@
 import { Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import MovieRows from '../MovieRows';
+import MovieRows from '../components/MovieRows';
 
 export default function Book(props) {
   const movies = props.movies
