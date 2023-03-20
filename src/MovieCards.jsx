@@ -7,9 +7,9 @@ export default function MovieCards(props) {
   return (
     <>
       
-      <Col sm={6} md={6} lg={5} key={movie.id} className="mb-4">
-            <Card>
-              <Card.Img variant="top" style={{ height: '400px' }} src={'https://cinema-rest.nodehill.se' + movie.description.posterImage} />
+      <Col xs={12} sm={6} md={6} lg={4} key={movie.id} className="mb-4">
+            <Card >
+          <Card.Img variant="top" style={{ maxWidth: '100%', height: '300px', objectFit: "cover" }}  src={'https://cinema-rest.nodehill.se' + movie.description.posterImage} />
               <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>Längd: {movie.description.length} min</Card.Text>

@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Navigationbar />
     <Container>
       <Row className='row justify-content-center align-items-center'>
-        <Row className="col-10 col-md-8">
+        <Row className="col-md-8 col-sm-10 col-xs-12">
             <App />
           </Row>
         </Row>
