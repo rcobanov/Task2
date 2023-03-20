@@ -2,7 +2,7 @@
 
 ## MovieCards
 The component moviecards is used to show the movies as cards on the startpage.
-It receives movies and screenings as a prop to be able to display both their viewing times and information about the movie
+It receives movies and screenings as a prop to be able to display both their viewing times and information about the movie in a card.
 
 ## MovieRows
 Is used in the bookings-page. The booking-page generates the table body, and the MovieRows takes a couple of props.
